@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>自助vip播放器</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="static/css/reset.css"/>
+    <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+      .top{
+        font-size: 0;
+        text-align: center;
+        padding:10px 0;
+        background:#666;
+      }
+      #str{
+          height:20px;
+          width:70%;
+          border:2px solid #e9bf65;
+          border-top-left-radius: 16px;
+          border-bottom-left-radius: 16px;
+          padding:5px 0 5px 20px;
+          font-size: 14px;
+      }
+      #str:hover{
+
+      }
+      .content{
+        min-height:250px;
+        width:100%;
+        margin:0 auto;
+        background:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488495281566&di=f5fb35f32be4f57e320bf1e8a6a74a28&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F17%2F57%2F48%2F60A58PICgvs_1024.jpg) no-repeat center;
+        background-size: cover;
+      }
+      #submit{
+        color:#333;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-block;
+        height:30px;
+        line-height:30px;
+        text-align: center;
+        width:15%;
+        background:#e9bf65;
+        border:2px solid #e9bf65;
+        color:#333;
+        border-left: none;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+      }
+      .info{
+          background:#666;
+          border-bottom: 1px solid #e9bf65;
+          border-top: 1px solid #e9bf65;
+          line-height:17px;
+          height:17px;
+          font-size: 14px;
+          color:#fff;
+          padding:3px 15px;
+          line-height: 1.5;
+
+
+      }
+      .footer{
+        background:#666;
+        overflow: hidden;
+      }
+      ul{
+        display: flex;
+        overflow: hidden;
+      }
+      ul li{
+        flex:1;
+        list-style: none;
+        text-align: center;
+        padding:10px 0;
+      }
+      ul img{
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="top">
+        <input type="text"/ id="str"><a href="javascript:" id="submit">提交</a>
+      </div>
+      <div class="content">
+        <div id="root"></div>
+      </div>
+      <div class="footer">
+      <p class="info" style="height:100%">使用说明：将视频地址粘贴到输入框提交即可观看视频,点击下面图标直通部分视频站（手机需将浏览器标识设置为电脑）</p>
+        <ul>
+          <li>
+            <a href="http://film.qq.com/" target="_blank">
+               <img src="http://vm.gtimg.cn/tencentvideo/vstyle/web/v4/style/img/vip/logo_vip_gold.png" style="vertical-align:middle">
+            </a>
+          </li>
+          <li>
+            <a href="http://www.iqiyi.com/dianying/vip.html" target="_blank">
+               <img src="http://www.qiyipic.com/common/fix/public_images/logo108x35_share.png">
+            </a>
+          </li>
+          <li>
+            <a href="http://movie.youku.com/" target="_blank">
+               <img src="http://static.youku.com/youku/dist/img/find/yk-logo-1220.png">
+            </a>
+          </li>
+        </ul>
+
+      </div>
+  </body>
+  <script type="text/javascript">
+  var api="https:/aikan-tv.com/tong.php?url=";
+  
+  var root=document.getElementById("root");
+  var submit=document.getElementById("submit");
+  var str=document.getElementById("str")
+  submit.onclick=function(){
+    var url=str.value;
+    var html=`<iframe width="100%" height="300px" src="${api}${url}" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>`
+      root.innerHTML=html;
+  }
+  </script>
+
+</html>
